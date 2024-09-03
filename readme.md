@@ -7,11 +7,13 @@ flask-ingress.yaml: Sets up routing for the Flask app.
 flask-service.yaml: Exposes the Flask app to the network.
 
 =>What You Need
+
 Docker: To build and manage containers.
 Minikube: To run a local Kubernetes cluster.
 kubectl: To interact with your Kubernetes cluster.
 
 =>How to Get Started
+
 1. Build and Push Docker Image
 Build the Docker Image
 
