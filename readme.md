@@ -54,3 +54,34 @@ This command will provide a URL you can use to access your Flask app from your b
 Troubleshooting
 Can't Access the App: Make sure Minikube is running and ports are correctly exposed.
 Ingress Issues: If you’re using Ingress, ensure it’s set up correctly and running.
+
+=>DNS Resolution in Kubernetes
+
+Within a Kubernetes cluster, DNS resolution allows pods to communicate with each other using service names rather than IP addresses. 
+Each service in the cluster gets a DNS entry managed by the Kubernetes DNS system, which translates service names into their corresponding cluster IP addresses. 
+This makes inter-pod communication seamless and reliable.
+
+=>Resource Requests and Limits
+
+Resource requests and limits are used in Kubernetes to manage pod resource allocation and ensure that no single application consumes all available resources.
+For example, you can specify CPU and memory requests to guarantee a minimum allocation, while limits prevent the application from using more than a specified maximum. 
+This approach helps maintain cluster stability and ensures that resources are fairly distributed among running applications.
+
+=>Design Choices
+
+Configurations and Setups: I chose to use Minikube for local testing and Kubernetes for deployment due to its scalability and ease of use. 
+Minikube provides an excellent environment to simulate production scenarios without the need for a full-scale cloud setup.
+
+Alternatives Considered: I considered using Docker Compose instead of Kubernetes; however, Kubernetes offers better scalability, resource management, 
+and supports Ingress controllers, which makes it more suitable for production-like environments.
+
+=>Testing Scenarios
+
+Autoscaling: I tested autoscaling by applying a Horizontal Pod Autoscaler (HPA) configuration and simulating high traffic loads. 
+The application scaled up as expected during high load and scaled down during idle periods, effectively managing resource consumption.
+
+Database Interactions: Tested database interactions by sending multiple GET and POST requests to ensure data consistency and response times under load.
+The application performed well, with minimal delays observed.
+
+Testing Results: Autoscaling worked without issues, but during the highest load, response times slightly increased. 
+Database interactions remained consistent, demonstrating the robustness of MongoDB under simulated high traf
